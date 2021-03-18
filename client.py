@@ -1,3 +1,4 @@
+
 import socket
 
 class Client:
@@ -15,8 +16,7 @@ class Client:
             server = self.server
             message, addr = server.recvfrom(1024)
             print(message,addr)
+            break;
 
 client = Client()
 client.run()
-
-
