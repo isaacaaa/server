@@ -9,17 +9,22 @@ server.on('error', (err) => {
     server.close();
 });
 
-server.on('message', (msg, rinfo) => {
-    console.log(`server got: ${rinfo.port}:${msg} `);
+server.on('message', (msg, info) => {
+    console.log(`server got: ${info.port}:${msg} `);
+    server.send("d",info.port,'localhost',function(error){
+        if(error){
+          server.close();
+        }else{
+          console.log('Data sent !!!');
+          server.close();
+        }
+      });
 });
 
 server.on('listening', () => {
     const address = server.address();
     console.log(`server listening ${address.address}:${address.port}`);
 });
-
-
-
 
 
 
