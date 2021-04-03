@@ -21,7 +21,7 @@ function main() {
         console.log('Greeting:', response.message);
     });
     client.add({x: 1, y:2}, function (err, respone) {
-    	console.log('add:',respone.message);
+    	console.log('add:',respone.result);
     });
 
 }

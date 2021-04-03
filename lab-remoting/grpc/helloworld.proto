@@ -6,7 +6,7 @@ package helloworld;
 service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {}
-  rpc add (AddRequest) returns (AddReply) {}
+  rpc Add (AddRequest) returns (AddReply) {}
 }
 
 // The request message containing the user's name.

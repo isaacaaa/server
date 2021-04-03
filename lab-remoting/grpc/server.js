@@ -21,7 +21,7 @@ function sayHello(call, callback) {
     // first param: if no err send null
 }
 function add(call, callback) {
-   callback(null, {message:  call.request.x * call.request.y});
+    callback(null, {result: call.request.x + call.request.y});
 }
 
 /**
@@ -30,8 +30,7 @@ function add(call, callback) {
  */
 function main() {
     var server = new grpc.Server();
-    server.addService(hello_proto.Greeter.service, {sayHello: sayHello,add: add});
-
+    server.addService(hello_proto.Greeter.service, {SayHello: sayHello,Add: add});
     server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), () => {
         server.start();
     });
